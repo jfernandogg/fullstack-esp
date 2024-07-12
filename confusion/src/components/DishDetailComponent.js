@@ -1,32 +1,11 @@
-import React, { Component } from "react";
-import { Media } from "reactstrap";
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import React from 'react';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class   DishDetailComponent extends Component {
-
-    constructor(props){
-        super(props);
-    }
-
-    render(props) {
-        if(this.props!=null) {
-            console.log("props is not null")
-            return(
-                <div>
-                    {this.renderDish(this.props)}
-                </div>
-            );
-        }
-        console.log("render on dishdetailcomponent")
-        return(<div></div>);
-    }
-    renderDish(props) {
-        var dish = props.selectedDish;
-        var comments = "";
+    function renderDish({dish}) {
 
         console.log("renderdish");
         if(dish != null){
-            comments = dish.comments.toString();
+            //comments = dish.comments.toString();
             return(
                 <div className="row">
                     <div className="col-6 col-md-5 m-1">
@@ -40,7 +19,7 @@ class   DishDetailComponent extends Component {
                     </div>
                     <div className="col-6 col-md-5 m-1">
                         <h4>Comments</h4>
-                        {this.renderComments(dish.comments)}
+                        {renderComments(dish.comments)}
                     </div>
                 </div>
             );
@@ -52,8 +31,9 @@ class   DishDetailComponent extends Component {
             );
     }
 
-    renderComments(comments){
+    function renderComments(comments) {
         if (comments != null){
+            console.log("No es null comments")
             const rc = comments.map((comment) => (
                 <p key={comment.id}>
                     {comment.comment}<br/>
@@ -62,9 +42,19 @@ class   DishDetailComponent extends Component {
             ));
             return rc;
         }
+        else {
+            console.log("Comments es null");
+        }
         const rc = (<div></div>);
         return rc;
     }
-}
 
-export default  DishDetailComponent;
+    const  DishDetail = (props) => {
+            return(
+                <div>
+                    {renderDish(props)}
+                </div>
+            );
+    }
+
+export default  DishDetail;
