@@ -1,0 +1,22 @@
+.custom-jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+    text-align: center;
+  }
+  
+  .custom-jumbotron .row-header {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .custom-jumbotron h1 {
+    font-size: 3.5rem;
+  }
+  
+  .custom-jumbotron p {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  
